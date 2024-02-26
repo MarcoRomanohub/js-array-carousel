@@ -12,6 +12,9 @@ img{
 .hide{
   display: none;
 }
+.img.active{
+  display: block;
+}
 
 .main-wrapper{
   width: 100vw;
@@ -22,8 +25,8 @@ img{
 }
 
 .slider{
-  width: 80%;
-  height: 60%;
+  width: 65%;
+  height: 55%;
   position: relative;
 }
 
@@ -36,6 +39,7 @@ img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: none;
 }
 
 .btn-arrow{
@@ -63,4 +67,23 @@ img{
 }
 .bottom{
   bottom: 10px;
+}
+
+.side-bar{
+  width: 20%;
+  height: 55%;
+}
+.side-bar .side-img{
+  width: 100%;
+  height: calc(100% / 5);
+}
+.side-bar .side-img img.miniature{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(40%)
+}
+.side-bar .side-img .miniature.active{
+  filter: brightness(100%);
+  border: 2px solid whitesmoke;
 }

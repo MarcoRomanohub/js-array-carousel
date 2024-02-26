@@ -1,4 +1,5 @@
 const itemsWrapper = document.querySelector('.items-wrapper');
+const sideBar = document.querySelector('.side-bar');
 const up = document.querySelector('.top');
 const down = document.querySelector('.bottom');
 
@@ -16,17 +17,23 @@ const images = [
 
 for(let i=0; i < images.length; i++){
   const img = images[i];
-  itemsWrapper.innerHTML += `<img class="img hide" src="${img}" >`;
+  itemsWrapper.innerHTML += `<img class="img" src="${img}" >`;
+  sideBar.innerHTML += `
+  <div class="side-img">
+    <img class="miniature" src="${img}">
+  </div>`;
 }
 
 const itemsCollection = document.getElementsByClassName('img');
-
-itemsCollection[counterImg].classList.remove('hide');
+const miniatureCollection = document.getElementsByClassName('miniature');
+itemsCollection[counterImg].classList.add('active');
+miniatureCollection[counterImg].classList.add('active');
 
 up.addEventListener('click', function(){
   down.classList.remove('hide');
 
-  itemsCollection[counterImg].classList.add('hide');
+  itemsCollection[counterImg].classList.remove('active');
+  miniatureCollection[counterImg].classList.remove('active');
 
   counterImg--;
 
@@ -34,17 +41,20 @@ up.addEventListener('click', function(){
     up.classList.add('hide');
   }
 
-  itemsCollection[counterImg].classList.remove('hide');
+  itemsCollection[counterImg].classList.add('active');
+  miniatureCollection[counterImg].classList.add('active');
 })
 
 down.addEventListener('click', function(){
   up.classList.remove('hide');
 
-  itemsCollection[counterImg].classList.add('hide')
+  itemsCollection[counterImg].classList.remove('active')
+  miniatureCollection[counterImg].classList.remove('active')
 
   counterImg++;
 
-  itemsCollection[counterImg].classList.remove('hide')
+  itemsCollection[counterImg].classList.add('active')
+  miniatureCollection[counterImg].classList.add('active')
 
   if(counterImg === images.length -1){
     down.classList.add('hide');

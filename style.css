@@ -9,6 +9,9 @@ img{
 .dbg{
   background-color: royalblue;
 }
+.hide{
+  display: none;
+}
 
 .main-wrapper{
   width: 100vw;
@@ -21,6 +24,7 @@ img{
 .slider{
   width: 80%;
   height: 60%;
+  position: relative;
 }
 
 .items-wrapper{
@@ -32,4 +36,31 @@ img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.btn-arrow{
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: white;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.btn-arrow:hover{
+  background-color: white;
+  color: red;
+}
+
+.top{
+  top: 10px;
+}
+.bottom{
+  bottom: 10px;
 }

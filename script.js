@@ -3,7 +3,7 @@ const sideBar = document.querySelector('.side-bar');
 const up = document.querySelector('.top');
 const down = document.querySelector('.bottom');
 
-up.classList.add('hide');
+// up.classList.add('hide');
 
 let counterImg = 0;
 
@@ -30,33 +30,41 @@ itemsCollection[counterImg].classList.add('active');
 miniatureCollection[counterImg].classList.add('active');
 
 up.addEventListener('click', function(){
-  down.classList.remove('hide');
+  // down.classList.remove('hide');
 
   itemsCollection[counterImg].classList.remove('active');
   miniatureCollection[counterImg].classList.remove('active');
 
   counterImg--;
 
-  if(counterImg === 0){
-    up.classList.add('hide');
+  if(counterImg < 0){
+    counterImg = images.length - 1;
   }
+  // if(counterImg === 0){
+  //   up.classList.add('hide');
+  // }
 
   itemsCollection[counterImg].classList.add('active');
   miniatureCollection[counterImg].classList.add('active');
 })
 
 down.addEventListener('click', function(){
-  up.classList.remove('hide');
+  // up.classList.remove('hide');
 
   itemsCollection[counterImg].classList.remove('active')
   miniatureCollection[counterImg].classList.remove('active')
 
   counterImg++;
+  
+  if(counterImg === images.length){
+    counterImg = 0;
+  }
 
   itemsCollection[counterImg].classList.add('active')
   miniatureCollection[counterImg].classList.add('active')
 
-  if(counterImg === images.length -1){
-    down.classList.add('hide');
-  }
+
+  // if(counterImg === images.length -1){
+  //   down.classList.add('hide');
+  // }
 })
